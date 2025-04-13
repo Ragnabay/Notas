@@ -1,17 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Code Lookup</title>
+  <meta charset="UTF-8" />
+  <title>Buscar Código</title>
 </head>
 <body>
   <label for="codigo">Código:</label>
   <input type="text" id="codigo" />
-  <button onclick="lookupCode()">OK</button>
-  <div id="result"></div>
+  <button onclick="buscar()">OK</button>
+  <p id="resultado"></p>
 
   <script>
-    const mapping = {
+    const datos = {
       "101422010756": 4.2,
       "101422010770": 1.2,
       "101422010757": 3.5,
@@ -31,13 +31,13 @@
       "101422010763": 4.6,
       "101422010767": 4.5,
       "101422010755": 2.5,
-      "101422010751": 4.0,
+      "101422010751": 4,
       "101422010750": 4.5,
       "101422010754": 2.8,
       "101422010746": 4.6,
       "101421010680": 0,
       "101421010699": 4.3,
-      "14062117":      3.4,
+      "14062117": 3.4,
       "101412020747": 4.7,
       "101422010769": 4.7,
       "101418020492": 3.8,
@@ -47,10 +47,11 @@
       "101422010761": 4.2
     };
 
-    function lookupCode() {
-      const code = document.getElementById('codigo').value;
-      const result = mapping[code];
-      document.getElementById('result').textContent = result !== undefined ? result : '';
+    function buscar() {
+      const codigo = document.getElementById("codigo").value.trim();
+      const resultado = datos[codigo];
+      const mensaje = resultado !== undefined ? `Nota: ${resultado}` : "";
+      document.getElementById("resultado").innerText = mensaje;
     }
   </script>
 </body>
